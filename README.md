@@ -9,3 +9,13 @@ hoichoi-downloader using NodeJs
 ```
 node app [series_browser_url]
 ```
+
+### Task
+
+- [x] Download hoichoi video
+- [x] Download Full Hoichoi Series
+- [ ] Download movies, short film
+- [ ] Dynamic series / movie download structure
+- [ ] Cli app development
+- [ ] Desktop app development
+
