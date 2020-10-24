@@ -10,6 +10,11 @@ hoichoi-downloader using NodeJs
 node app [series_browser_url]
 ```
 
+## Examples
+```
+node app https://www.hoichoi.tv/show/title/eken-babu-web-series
+```
+
 ### Task
 
 - [x] Download hoichoi video
