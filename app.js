@@ -1,25 +1,21 @@
-const express = require("express");
-const cors = require("cors");
-const ytdl = require("ytdl-core");
-require("dotenv").config();
-const app = express();
+const { getDetails } = require("./services/series_details");
+const { formatSeriesDetails } = require("./services/format_data");
+const { createFolders } = require("./services/folder");
+const { downloadEpisodes } = require("./services/download_episodes");
 
-const port = 3000;
-// console.log(process.env.port);
-app.use(cors());
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-
-app.get("/download", (req, res) => {
-  const _url_ = "https://www.youtube.com/watch?v=lTxn2BuqyzU";
-  res.header("Content-Disposition", 'attachment; filename="video.mp4"');
-  ytdl(_url_, {
-    format: "mp4",
-  }).pipe(res);
-});
-
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
+(async () => {
+  try {
+    const series_name = process.argv[2].split("hoichoi.tv")[1];
+    if (!series_name) {
+      console.error("Series name or path is undefined");
+    }
+    console.log("Current Series Name: ", series_name);
+    const seriesDetails = await getDetails(series_name);
+    const data = formatSeriesDetails(seriesDetails);
+    await createFolders(data);
+    await downloadEpisodes(data);
+    console.log("Download complete");
+  } catch (error) {
+    console.error(`Something went wrong. ${error.message}`);
+  }
+})();
