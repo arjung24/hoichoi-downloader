@@ -18,8 +18,12 @@ const createNewFolder = async (dirPath) =>
 
 const createFolders = async (data) => {
   await createNewFolder(`${baseUrl}/${data.name}`);
-  for (let i = 0; i < data.episodes.length; i++) {
-    await createNewFolder(`${baseUrl}/${data.name}/${data.episodes[i].title}`);
+  if (!!data.episodes && data.episodes.length) {
+    for (let i = 0; i < data.episodes.length; i++) {
+      await createNewFolder(
+        `${baseUrl}/${data.name}/${data.episodes[i].title}`
+      );
+    }
   }
 };
 module.exports = { createFolders };
