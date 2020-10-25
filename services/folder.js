@@ -17,6 +17,7 @@ const createNewFolder = async (dirPath) =>
   });
 
 const createFolders = async (data) => {
+  await createNewFolder(baseUrl);
   await createNewFolder(`${baseUrl}/${data.name}`);
   if (!!data.episodes && data.episodes.length) {
     for (let i = 0; i < data.episodes.length; i++) {
