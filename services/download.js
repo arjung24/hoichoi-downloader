@@ -9,10 +9,11 @@ const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
 
 const download = async ({ url, fileName, path, number }) => {
   let currentPercentage = 0;
-  const fileNameWithExt = `./downloads/${path}/${number}_${fileName.replace(
-    " ",
-    "_"
-  )}.mp4`;
+  let fileNameWithExt = `./downloads/${path}/${
+    number ? `${number}_` : ""
+  }${fileName.replace(/ /g, "_")}.mp4`;
+  console.log(fileNameWithExt);
+  // fileNameWithExt = "test.mp4";
   const downloadStream = got.stream(url);
   const fileWriterStream = createWriteStream(fileNameWithExt);
   bar.start(100, 0);

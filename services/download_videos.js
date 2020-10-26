@@ -22,4 +22,15 @@ const downloadEpisodes = async (data) => {
   }
 };
 
-module.exports = { downloadEpisodes };
+const downloadMovie = async (data) => {
+  const streamingUrl = await getStatusInfo(data.movie.url);
+  console.log(`${data.movie.name}: `);
+  await download({
+    url: streamingUrl,
+    path: `${data.movie.name}`,
+    fileName: data.movie.name,
+    number: null,
+  });
+};
+
+module.exports = { downloadEpisodes, downloadMovie };
