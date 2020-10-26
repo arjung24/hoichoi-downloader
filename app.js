@@ -15,7 +15,7 @@ const {
 
     const seriesDetails = await getDetails(series_name);
     const data = formatSeriesDetails(seriesDetails);
-    console.log("Current Series Name: ", data.title);
+    console.log("Current Series Name: ", data.name);
     await initFolderStructure(data);
     if (data.movie && data.movie.url) {
       await downloadMovie(data);
