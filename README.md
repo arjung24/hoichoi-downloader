@@ -6,6 +6,9 @@ hoichoi-downloader using NodeJs
 
 ## Usages
 
+Please add x-api-key & authorization in configs/config.json. You will  get this data from hoichoi, if you are login user, please check network & use headers data here.
+
+To run the app : 
 ```
 node app [series_browser_url]
 ```
