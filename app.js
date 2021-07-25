@@ -5,6 +5,7 @@ const {
   downloadEpisodes,
   downloadMovie,
 } = require('./services/download_videos');
+const { getToken } = require('./services/auth');
 
 (async () => {
   try {
@@ -17,12 +18,17 @@ const {
     const data = formatSeriesDetails(seriesDetails);
     console.log('Current Series Name: ', data.name);
     await initFolderStructure(data);
-    if (data.movie && data.movie.url) {
-      await downloadMovie(data);
-    } else {
-      await downloadEpisodes(data);
+    const { token } = await getToken();
+
+    if (!token) {
+      console.error('Sorry, Error occurred to get token');
     }
 
+    if (data.movie && data.movie.url) {
+      await downloadMovie(data, token);
+    } else {
+      await downloadEpisodes(data, token);
+    }
     console.log('Download complete');
   } catch (error) {
     console.error(`Something went wrong. ${error.message}`);

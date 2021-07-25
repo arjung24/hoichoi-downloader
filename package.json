@@ -14,8 +14,10 @@
     "eslint-plugin-import": "^2.22.1"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "cli-progress": "^3.8.2",
     "got": "^11.8.0",
+    "request": "^2.88.2",
     "request-promise": "^4.2.6"
   }
 }

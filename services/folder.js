@@ -1,3 +1,6 @@
+/* eslint-disable no-await-in-loop */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-extra-boolean-cast */
 const fs = require('fs');
 const path = require('path');
 
@@ -24,8 +27,12 @@ const initFolderStructure = async (data) => {
 
   if (data.episodes) {
     if (!!data.episodes && data.episodes.length) {
-      for (let i = 0; i < data.episodes.length; i++) {
+      /* for (let i = 0; i < data.episodes.length; i++) {
         await createNewFolder(`${baseName}/${data.episodes[i].title}`);
+      } */
+
+      for (const e of data.episodes) {
+        await createNewFolder(`${baseName}/${e.title}`);
       }
     }
   }
