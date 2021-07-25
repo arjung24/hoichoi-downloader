@@ -1,7 +1,7 @@
-const path = require("path");
+const path = require('path');
 
-const { getStatusInfo } = require("./get_status_info");
-const { download } = require("./download");
+const { getStatusInfo } = require('./get_status_info');
+const { download } = require('./download');
 
 const downloadEpisodes = async (data) => {
   for (let i = 0; i < data.episodes.length; i++) {

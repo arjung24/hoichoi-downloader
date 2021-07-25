@@ -1,7 +1,7 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
-const baseFolder = path.join(__dirname, "..", "downloads");
+const baseFolder = path.join(__dirname, '..', 'downloads');
 
 const createNewFolder = async (dirPath) =>
   new Promise((resolve, reject) => {

@@ -1,15 +1,15 @@
-const rp = require("request-promise");
+const rp = require('request-promise');
 
-const configs = require("../configs/config.json");
+const configs = require('../configs/config.json');
 
 const queryString = {
-  deviceType: "web_browser",
-  contentConsumption: "web",
+  deviceType: 'web_browser',
+  contentConsumption: 'web',
 };
 
 const getStatusInfo = async (id) => {
   const options = {
-    uri: "https://prod-api.viewlift.com/entitlement/video/status",
+    uri: 'https://prod-api.viewlift.com/entitlement/video/status',
     qs: { ...queryString, id },
     headers: {
       authorization: configs.authorization,
