@@ -14,7 +14,7 @@ hoichoi series, movie downloader using NodeJs
 
 ## Usages
 
-Please add x-api-key & authorization in configs/config.json. You will  get this data from hoichoi, if you are login user, please check network & use headers data here.
+Please add username & password of hoichoi in configs/config.json. 
 
 To run the app : 
 ```
