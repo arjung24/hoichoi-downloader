@@ -35,9 +35,4 @@ const getToken = async () => {
   }
 };
 
-(async () => {
-  const res = await getToken();
-  console.log(res);
-})();
-
 module.exports = { getToken };
